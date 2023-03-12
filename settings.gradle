@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        maven {
+            allowInsecureProtocol true
+            url 'http://10.0.1.45:8081/repository/maven-public/'
+        }
+    }
+}
+
+rootProject.name = 'cm-common-grpc-springboot-server'

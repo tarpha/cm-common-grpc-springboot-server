@@ -1,0 +1,15 @@
+syntax = "proto3";
+package kbank.cm.common;
+
+service EncryptUtil {
+    rpc encrypt(Plain) returns (Encrypt);
+    rpc decrypt(Encrypt) returns (Plain);
+}
+
+message Encrypt {
+    string value = 1;
+}
+
+message Plain {
+    string value = 1;
+}
