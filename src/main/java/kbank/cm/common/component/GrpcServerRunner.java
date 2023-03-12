@@ -1,7 +1,6 @@
 package kbank.cm.common.component;
 
 import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -30,6 +29,7 @@ public class GrpcServerRunner implements ApplicationRunner, DisposableBean {
     @Override
     public void destroy() throws Exception {
         if(grpcServer != null) {
+            log.info("gRPC server will be stopped");
             grpcServer.shutdown();
         }
     }
