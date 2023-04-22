@@ -12,13 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 @CacheConfig(cacheNames={"grpc"})
 public class EncryptService {
 
-    @Cacheable(value = "encrypt", keyGenerator = "hashKeyGenerator")
+    @Cacheable(value = "grpc:encrypt", keyGenerator = "hashKeyGenerator")
     public String encrypt(String plain) {
         log.info("encrypt called");
         return Base64.encodeBase64String(plain.getBytes());
     }
 
-    @Cacheable(value = "encrypt", keyGenerator = "hashKeyGenerator")
+    @Cacheable(value = "grpc:decrypt", keyGenerator = "hashKeyGenerator")
     public String decrypt(String encrypt) {
         log.info("decrypt called");
         return new String(Base64.decodeBase64(encrypt));
